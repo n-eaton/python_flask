@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+<h3>
+    home
+</h3>
+<hr />
+
+<form>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="body" placeholder="your block post here">
+            </div>
+            <div class="col-md-2">
+                <input class="btn btn-info btn-block" type="submit" value="post" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<hr />
+
+
+
+<!-- for posts -->
+    <ul class="list-group">
+        {% for p in posts %}
+            <li class="list-group-item">
+                <p>
+                    <a href="">{{ p.body }}</a>
+                </p>
+
+                <div>
+                    <span>
+                        <cite>&mdash; {{p.first_name+ ' '+ p.last_name}}</cite>
+                        <small class="float-right">{{ p.date_posted}} days ago</small>
+                    </span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
+
+
+{# this is a comment in jinja
+    <li class="list-group-item">
+        <p>
+            <a href="">{{body}}</a>
+        </p>
+    
+        <div>
+            <span>
+                <cite>&mdash; {{ first_name + ' '+ last_name}}</cite>
+                <small class="float-right">{{date_posted}} seconds ago</small>
+            </span>
+        </div>
+    </li>
+#}
